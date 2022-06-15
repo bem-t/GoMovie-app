@@ -1,17 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Login.css"
-import {useRef, useContext} from 'react'
-// import { loginCall } from "../../apiCalls";
-// import { AuthContext } from "../../context/AuthContext";
+import {useRef} from 'react'
 export const Login = () => {
     const email = useRef();
     const password = useRef();
-    // const {isFetching, dispatch} = useContext(AuthContext)
-
     
     const handleSubmit=(e)=>{
         e.preventDefault()
-        // loginCall({email: email.current.value, password: password.current.value},dispatch)
+        localStorage.setItem('user',[email.current.value,password.current.value]);
     }
 
     const handleKeyPress = (event) => {
