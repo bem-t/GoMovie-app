@@ -1,0 +1,54 @@
+body {
+    background-color: black;
+    box-sizing: border-box;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px
+}
+.searchInput{
+    padding: 10px;
+    font-size: 17px;
+    border: 2px solid red;
+    width: 60%;
+    background: white;
+    border-right: none;
+    outline: none;
+}
+
+.searchButton{
+  width: 10%;
+  padding: 10px;
+  background: white;
+  font-size: 17px;
+  font-weight: bold;
+  border: 2px solid red;
+  cursor: pointer;
+  border-left: none;
+  outline: none;
+}
+.App{
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    flex-direction: column;
+}
+
+.movies{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    flex-wrap: wrap;
+    align-items: center
+}
+
+.movie{
+    width: 18;
+    display: inline-block;
+    margin: 5px;
+    box-shadow: 0 0 2px 2px red;
+    background: white;
+}

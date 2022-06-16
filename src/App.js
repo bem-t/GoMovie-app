@@ -1,14 +1,15 @@
 import './App.css';
+import Demo from './pages/demo/Demo';
 import { Login } from './pages/login/Login';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Login />
-      </header>
+    <div>
+        {/* <Login /> */}
+        <Demo />
     </div>
   );
 }
 
 export default App;
+

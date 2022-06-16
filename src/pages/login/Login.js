@@ -28,7 +28,7 @@ export const Login = () => {
             <div className="loginRight">
                 <form className="loginBox" onSubmit={handleSubmit}>
                     <input placeholder="Email" type="email" ref={email} className="loginInput" required autoFocus/>
-                    <input placeholder="Password" type="password" minLength="7" ref={password} className="loginInput" required/>
+                    <input placeholder="Password" type="password" minLength="6" ref={password} className="loginInput" required/>
                     <button className="loginButton" type="submit" onKeyUp={handleKeyPress}
                     >Log In</button>
                 </form>
