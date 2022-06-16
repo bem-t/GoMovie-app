@@ -27,14 +27,20 @@ const Demo = () => {
   };
 
 
-  const handlePage = () =>{
+  const handleNextPage = () =>{
     setPage(page+1)
+    handleSearch()
   }
 
+  const handlePrevPage =() =>{
+    setPage(page-1)
+    handleSearch()
+  }
 
   return (
     <div>
         <div className="container">
+        <button  onClick={handlePrevPage}> {"<"} </button>
       <input
         className="searchInput"
         type="text"
@@ -46,8 +52,9 @@ const Demo = () => {
         autoFocus
       />
       <button className="searchButton" onClick={handleSearch}>SEARCH</button>
+      <button  onClick={handleNextPage}> {">"} </button>
       </div>
-      {/* <button  onClick={handlePage}>next page</button> */}
+     
       <div className="App">
         <div className="movies">
           {data.map((movieStar) => {
