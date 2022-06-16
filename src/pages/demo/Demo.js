@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import './Demo.css'
-
-//https://api.themoviedb.org/3/person/5696d98292514154c9000291?api_key=ec49a9176aaaa92453852d5fe8b2493d&language=en-US
+import "./Demo.css";
 
 const Demo = () => {
   const URL =
@@ -11,7 +9,7 @@ const Demo = () => {
 
   const [inputValue, setInputValue] = useState("");
   const [data, setData] = useState([]);
-  const [page, setPage] = useState(2)
+  const [page, setPage] = useState(1);
 
   const handleSearch = async () => {
     try {
@@ -26,41 +24,42 @@ const Demo = () => {
     }
   };
 
+  const handleNextPage = () => {
+    setPage(page + 1);
+    handleSearch();
+  };
 
-  const handleNextPage = () =>{
-    setPage(page+1)
-    handleSearch()
-  }
-
-  const handlePrevPage =() =>{
-    setPage(page-1)
-    handleSearch()
-  }
+  const handlePrevPage = () => {
+    setPage(page - 1);
+    handleSearch();
+  };
 
 
   return (
-    <div>
-        <div className="container">
-        <button  onClick={handlePrevPage}> {"<"} </button>
-      <input
-        className="searchInput"
-        type="text"
-        placeholder="search..."
-        onChange={(e) => {
-          setInputValue(e.target.value);
-        }}
-        value={inputValue}
-        autoFocus
-      />
-      <button className="searchButton" onClick={handleSearch}>SEARCH</button>
-      <button  onClick={handleNextPage}> {">"} </button>
+    <>
+      <div className="container">
+        <button onClick={handlePrevPage}> {"<"} </button>
+        <input
+          className="searchInput"
+          type="text"
+          placeholder="search..."
+          onChange={(e) => {
+            setInputValue(e.target.value);
+          }}
+          value={inputValue}
+          autoFocus
+        />
+        <button className="searchButton" onClick={handleSearch}>
+          SEARCH
+        </button>
+        <button onClick={handleNextPage}> {">"} </button>
       </div>
-     
+
       <div className="App">
         <div className="movies">
           {data.map((movieStar) => {
             return (
-              <div className="movie">
+              <div className="movie" key={movieStar.id} >
                 <img
                   src={`${imgHeader}${movieStar.profile_path}`}
                   alt={movieStar}
@@ -71,7 +70,7 @@ const Demo = () => {
           })}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
