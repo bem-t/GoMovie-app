@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./Login.css"
 import {useRef} from 'react'
+import { Link } from "react-router-dom";
 export const Login = () => {
     const email = useRef();
     const password = useRef();
@@ -30,7 +31,9 @@ export const Login = () => {
                     <input placeholder="Email" type="email" ref={email} className="loginInput" required autoFocus/>
                     <input placeholder="Password" type="password" minLength="6" ref={password} className="loginInput" required/>
                     <button className="loginButton" type="submit" onKeyUp={handleKeyPress}
-                    >Log In</button>
+                    >
+                        <Link to="/Demo">Log In</Link>   
+                    </button>
                 </form>
             </div>
         </div>
